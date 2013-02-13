@@ -1,15 +1,10 @@
 if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to heads-up.";
+  Template.body.loggedIn = function() {
+    return Meteor.user() !== null;
   };
-
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
+  Template.body.configured = function() {
+    return false;
+  }
 }
 
 if (Meteor.isServer) {

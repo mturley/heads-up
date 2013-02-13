@@ -3,14 +3,35 @@
 </head>
 
 <body>
-  {{> hello}}
+  {{> body}}
 </body>
 
-<template name="hello">
-  <div align="center">
-    <h1>heads-up</h1>
-    <h3>this app does not do anything yet.  but you can log in!</h3>
-    {{loginButtons}}
-  </div>
+<template name="body">
+  {{#unless loggedIn}}
+    {{> login}}
+  {{else}}
+    {{#if configured}}
+      {{> dashboard}}
+    {{else}}
+      {{> config}}
+    {{/if}}
+  {{/unless}}
+</template>
 
+<template name="login">
+  <div id="floater">
+    <div align="center" id="content">
+      <h1>heads-up</h1>
+      <h3>this app does not do anything yet.  but you can log in!</h3>
+      {{loginButtons}}
+    </div>
+  </div>
+</template>
+
+<template name="dashboard">
+  <h1>DASHBOARD - TODO</h1>
+</template>
+
+<template name="config">
+  <h1>CONFIG - TODO</h1>
 </template>
