@@ -10,7 +10,6 @@
   {{#unless loggedIn}}
     {{> login}}
   {{else}}
-    {{loginButtons}}
     {{#if configured}}
       {{> dashboard}}
     {{else}}
@@ -20,19 +19,36 @@
 </template>
 
 <template name="login">
-  <div id="floater">
-    <div align="center" id="content">
-      <h1>heads-up</h1>
-      <h3>this app does not do anything yet.  but you can log in!</h3>
-      {{loginButtons}}
-    </div>
+  <div class="vcenter">
+    <h1>heads-up</h1>
+    <h3>this app does not do anything yet.  but you can log in!</h3>
+    {{loginButtons}}
   </div>
 </template>
 
 <template name="dashboard">
-  <h1>DASHBOARD - TODO</h1>
+  <div class="vcenter">
+    {{loginButtons}} <a href="#" id="config">Configure...</a>
+    <div style="padding: 30px; margin: 30px; background: {{favcolor}};">
+      <h1>DASHBOARD - TODO</h1>
+    </div>
+  </div>
 </template>
 
 <template name="config">
-  <h1>CONFIG - TODO</h1>
+  <div class="vcenter">
+    {{loginButtons}}
+    <h1>CONFIG - TODO</h1>
+    <h2>What is your favorite color?</h2>
+    <select id="config-favcolor" class="configoption">
+      <option value="red">Red</option>
+      <option value="orange">Orange</option>
+      <option value="yellow">Yellow</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="indigo">Indigo</option>
+      <option value="violet">Violet</option>
+    </select>
+    <button id="config-submit">Save Configuration</button>
+  </div>
 </template>
