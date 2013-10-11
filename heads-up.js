@@ -1,3 +1,7 @@
+// TODO use either the npm googleapis or the client JS google API to make this kind of request:
+// https://developers.google.com/apis-explorer/#p/calendar/v3/calendar.events.list?calendarId=midget913%2540gmail.com&orderBy=startTime&singleEvents=true&timeMin=2013-09-25T03%253A30%253A45.228Z&_h=10&
+// here it is on npm: https://github.com/google/google-api-nodejs-client/
+
 if (Meteor.isClient) {
   Template.body.loggedIn = function() {
     return Meteor.user() !== null;
